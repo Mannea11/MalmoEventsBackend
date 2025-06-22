@@ -1,0 +1,48 @@
+package com.MalmoConcerts.Demo.Controller;
+
+import com.MalmoConcerts.Demo.Client.TicksterClient;
+import com.MalmoConcerts.Demo.DTO.Tickster.TicksterCompleteInfoDTO;
+import com.MalmoConcerts.Demo.DTO.Tickster.TicksterInfoDTO;
+import com.MalmoConcerts.Demo.Service.TicksterServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+@CrossOrigin(origins = "https://malmo-events-8bv8kbh6d-manne-s-projects.vercel.app/")
+@RestController
+@RequestMapping("/tickster")
+public class TicksterController {
+
+    private final TicksterClient ticksterClient;
+
+    private final TicksterServiceImpl ticksterServiceImpl;
+
+@Autowired
+    public TicksterController(TicksterClient ticksterClient, TicksterServiceImpl ticksterServiceImpl) {
+        this.ticksterClient = ticksterClient;
+    this.ticksterServiceImpl = ticksterServiceImpl;
+}
+
+    @GetMapping("/all")
+    public Mono<String> getAllEvents() {
+        return ticksterClient.getAllEvents();
+    }
+
+
+    @GetMapping("/event")
+    public Flux<TicksterInfoDTO> getEvents() {
+        return ticksterServiceImpl.getAllEvents();
+    }
+
+
+
+    @GetMapping("/category/{categoryId}")
+    public Flux<TicksterInfoDTO> getEventsByCategory(@PathVariable String categoryId) {
+    return ticksterServiceImpl.getEventsByCategory(categoryId);
+    }
+
+    @GetMapping("/{id}")
+    public Mono<TicksterCompleteInfoDTO> getEventById(@PathVariable String id) {
+    return ticksterServiceImpl.getEventsById(id);
+    }
+}
