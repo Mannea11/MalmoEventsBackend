@@ -1,6 +1,6 @@
 package com.MalmoConcerts.Demo.Controller;
 
-
+import org.springframework.web.bind.annotation.CrossOrigin;  
 import com.MalmoConcerts.Demo.Client.BillettoClient;
 import com.MalmoConcerts.Demo.DTO.Billetto.BillettoCompleteInfoDTO;
 import com.MalmoConcerts.Demo.DTO.Billetto.BillettoInfoDTO;
