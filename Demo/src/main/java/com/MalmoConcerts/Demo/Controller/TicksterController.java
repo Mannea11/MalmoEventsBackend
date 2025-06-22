@@ -1,5 +1,5 @@
 package com.MalmoConcerts.Demo.Controller;
-
+import org.springframework.web.bind.annotation.CrossOrigin;  
 import com.MalmoConcerts.Demo.Client.TicksterClient;
 import com.MalmoConcerts.Demo.DTO.Tickster.TicksterCompleteInfoDTO;
 import com.MalmoConcerts.Demo.DTO.Tickster.TicksterInfoDTO;
