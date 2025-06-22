@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-@CrossOrigin(origins = "https://malmo-events-8bv8kbh6d-manne-s-projects.vercel.app/")
+
 @RestController
 @RequestMapping("/billetto")
 public class BillettoController {
